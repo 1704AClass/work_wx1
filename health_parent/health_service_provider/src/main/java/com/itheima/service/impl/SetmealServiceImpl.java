@@ -1,6 +1,7 @@
 package com.itheima.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,7 +13,6 @@ import com.itheima.entity.PageResult;
 import com.itheima.mapper.SetmealMapper;
 import com.itheima.pojo.Setmeal;
 import com.itheima.service.SetmealService;
-import com.sun.tools.javac.util.List;
 
 import redis.clients.jedis.JedisPool;
 
@@ -51,6 +51,15 @@ public class SetmealServiceImpl implements SetmealService {
 		Page<Setmeal> page=mapper.selectByCondition(queryString);
 		PageResult pageResult = new PageResult(page.getTotal(),page.getResult());
 		return pageResult;
+	}
+	@Override
+	public List<Setmeal> findAll() {
+		// TODO Auto-generated method stub
+		return mapper.findAll();
+	}
+	@Override
+	public Setmeal findById(int id) {
+		return mapper.findById(id);
 	}
 	
 	
