@@ -36,7 +36,7 @@
 
     <!--根据手机号查询会员-->
     <select id="findByTelephone" parameterType="string" resultType="com.itheima.pojo.Member">
-        select * from t_member where phoneNumber = #{phoneNumber}
+        select * from t_member where phoneNumber = #{telephone}
     </select>
 
     <!--编辑会员-->

@@ -31,7 +31,7 @@ public class OrderController {
 		String telephone=(String) map.get("telephone");
 		String codeInRedis=jedisPool.getResource().get(telephone+RedisMessageConstant.SENDTYPE_ORDER);
 		String validateCode=(String) map.get("validateCode");
-		if(codeInRedis!=null && !codeInRedis.equals(validateCode)) {
+		if(codeInRedis==null || !codeInRedis.equals(validateCode)) {
 			return new Result(false, MessageConstant.VALIDATECODE_ERROR);
 		}
 		Result result=null;
